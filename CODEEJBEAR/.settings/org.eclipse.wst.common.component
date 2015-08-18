@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CODEEJBEAR">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="CodeEJB.jar" deploy-path="/" handle="module:/resource/CodeEJB/CodeEJB">
+            <dependent-object>Module_1439497223923</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CodeJPA.jar" deploy-path="/lib" handle="module:/resource/CodeJPA/CodeJPA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CodeEJBTestWeb.war" deploy-path="/" handle="module:/resource/CodeEJBTestWeb/CodeEJBTestWeb">
+            <dependent-object>Module_1439506153171</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CodeEJBWeb.war" deploy-path="/" handle="module:/resource/CodeEJBWeb/CodeEJBWeb">
+            <dependent-object>Module_1439564094905</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
