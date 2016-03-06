@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- jsf:pagecode language="java" location="/src/pagecode/CustomerDetails.java" --><!-- /jsf:pagecode --><ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" template="/layout/itsoLayout.xhtml">
+	<ui:define name="pageContent">
+		<h:form styleClass="form" id="form1">
+			<table>
+				<tbody>
+					<tr>
+						<td align="left">Customer ID:</td>
+						<td style="width: 5px">&#160;</td>
+						<td><h:outputText styleClass="outputText" id="ssn1"
+							value="#{customerController.customer.ssn}">
+						</h:outputText></td>
+					</tr>
+					<tr>
+						<td align="left">Title:</td>
+						<td style="width: 5px">&#160;</td>
+						<td><h:inputText styleClass="inputText" id="title1"
+							value="#{customerController.customer.title}">
+						</h:inputText></td>
+					</tr>
+					<tr>
+						<td align="left">First Name:</td>
+						<td style="width: 5px">&#160;</td>
+						<td><h:inputText styleClass="inputText" id="firstName1"
+							value="#{customerController.customer.firstName}">
+						</h:inputText></td>
+					</tr>
+					<tr>
+						<td align="left">Last Name:</td>
+						<td style="width: 5px">&#160;</td>
+						<td><h:inputText styleClass="inputText" id="lastName1"
+							value="#{customerController.customer.lastName}">
+						</h:inputText></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			<h:commandButton styleClass="commandButton" type="submit"
+				value="Update" id="id1" action="#{customerController.doUpdateAction}">
+			</h:commandButton>
+			
+			
+			<h:commandButton type="submit" value="Ajax Update"
+				styleClass="commandButton" id="button1">
+				<f:ajax execute="firstName1 lastName1 title1" render="form1" listener="#{customerController.handleAjax}"></f:ajax>
+			</h:commandButton>
+			
+			
+			<h:messages styleClass="messages" id="id2messages"></h:messages>
+			
+			
+			<h:dataTable id="accountList1"
+				value="#{customerController.accountList}" var="varaccountList"
+				styleClass="dataTable" headerClass="headerClass"
+				footerClass="footerClass" rowClasses="rowClass1, rowClass2"
+				columnClasses="columnClass1" border="0" cellpadding="2"
+				cellspacing="0">
+				<h:column id="id2column">
+					<f:facet name="header">
+						<h:outputText styleClass="outputText" value="Account Number"
+							id="id2text"></h:outputText>
+					</f:facet>
+					<h:outputText styleClass="outputText" id="id2"
+						value="#{varaccountList.id}">
+					</h:outputText>
+				</h:column>
+				<h:column id="balance1column">
+					<f:facet name="header">
+						<h:outputText styleClass="outputText" value="Balance"
+							id="balance1text"></h:outputText>
+					</f:facet>
+					<h:outputText styleClass="outputText" id="balance1"
+						value="#{varaccountList.balance}">
+					</h:outputText>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

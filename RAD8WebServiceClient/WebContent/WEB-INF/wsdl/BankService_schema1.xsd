@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://simple.model.bank.rad8.itso/" targetNamespace="http://simple.model.bank.rad8.itso/" version="1.0">
+
+  <xs:element name="AccountDoesNotExistException" type="tns:AccountDoesNotExistException"/>
+
+  <xs:element name="CustomerDoesNotExistException" type="tns:CustomerDoesNotExistException"/>
+
+  <xs:element name="RetrieveCustomerName" type="tns:RetrieveCustomerName"/>
+
+  <xs:element name="RetrieveCustomerNameResponse" type="tns:RetrieveCustomerNameResponse"/>
+
+  <xs:element name="getAccountBalance" type="tns:getAccountBalance"/>
+
+  <xs:element name="getAccountBalanceResponse" type="tns:getAccountBalanceResponse"/>
+
+  <xs:element name="getAccountId" type="tns:getAccountId"/>
+
+  <xs:element name="getAccountIdResponse" type="tns:getAccountIdResponse"/>
+
+  <xs:element name="getNumAccounts" type="tns:getNumAccounts"/>
+
+  <xs:element name="getNumAccountsResponse" type="tns:getNumAccountsResponse"/>
+
+  <xs:complexType name="getNumAccounts">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNumAccountsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CustomerDoesNotExistException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AccountDoesNotExistException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAccountBalance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAccountBalanceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAccountId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAccountIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RetrieveCustomerName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ssn" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RetrieveCustomerNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerFullName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

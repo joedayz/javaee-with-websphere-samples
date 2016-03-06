@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="RAD8JPA" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<class>itso.bank.entities.Account</class>
+		<class>itso.bank.entities.Customer</class>
+		<class>itso.bank.entities.Transaction</class>
+		<class>itso.bank.entities.Debit</class>
+		<class>itso.bank.entities.Credit</class>
+		<properties>
+			<property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/itsobank" />
+			<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
+			<property name="openjpa.ConnectionUserName" value="root" />
+			<property name="openjpa.ConnectionPassword" value="password" />
+			<property name="openjpa.Log" value="none" />
+		</properties>
+
+
+
+	</persistence-unit>
+</persistence>

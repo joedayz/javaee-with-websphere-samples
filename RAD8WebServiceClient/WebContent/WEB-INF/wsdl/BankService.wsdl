@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://simple.model.bank.rad8.itso/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BankService" targetNamespace="http://simple.model.bank.rad8.itso/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://simple.model.bank.rad8.itso/" schemaLocation="BankService_schema1.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getAccountId">
+    <part element="tns:getAccountId" name="parameters">
+    </part>
+  </message>
+  <message name="getAccountIdResponse">
+    <part element="tns:getAccountIdResponse" name="parameters">
+    </part>
+  </message>
+  <message name="CustomerDoesNotExistException">
+    <part element="tns:CustomerDoesNotExistException" name="fault">
+    </part>
+  </message>
+  <message name="getAccountBalance">
+    <part element="tns:getAccountBalance" name="parameters">
+    </part>
+  </message>
+  <message name="AccountDoesNotExistException">
+    <part element="tns:AccountDoesNotExistException" name="fault">
+    </part>
+  </message>
+  <message name="RetrieveCustomerName">
+    <part element="tns:RetrieveCustomerName" name="parameters">
+    </part>
+  </message>
+  <message name="getAccountBalanceResponse">
+    <part element="tns:getAccountBalanceResponse" name="parameters">
+    </part>
+  </message>
+  <message name="getNumAccounts">
+    <part element="tns:getNumAccounts" name="parameters">
+    </part>
+  </message>
+  <message name="RetrieveCustomerNameResponse">
+    <part element="tns:RetrieveCustomerNameResponse" name="parameters">
+    </part>
+  </message>
+  <message name="getNumAccountsResponse">
+    <part element="tns:getNumAccountsResponse" name="parameters">
+    </part>
+  </message>
+  <portType name="Bank">
+    <operation name="RetrieveCustomerName">
+      <input message="tns:RetrieveCustomerName" wsam:Action="urn:getCustomerFullName">
+    </input>
+      <output message="tns:RetrieveCustomerNameResponse" wsam:Action="http://simple.model.bank.rad8.itso/Bank/RetrieveCustomerNameResponse">
+    </output>
+      <fault message="tns:CustomerDoesNotExistException" name="CustomerDoesNotExistException" wsam:Action="http://simple.model.bank.rad8.itso/Bank/RetrieveCustomerName/Fault/CustomerDoesNotExistException">
+    </fault>
+    </operation>
+    <operation name="getNumAccounts">
+      <input message="tns:getNumAccounts" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getNumAccountsRequest">
+    </input>
+      <output message="tns:getNumAccountsResponse" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getNumAccountsResponse">
+    </output>
+      <fault message="tns:CustomerDoesNotExistException" name="CustomerDoesNotExistException" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getNumAccounts/Fault/CustomerDoesNotExistException">
+    </fault>
+      <fault message="tns:AccountDoesNotExistException" name="AccountDoesNotExistException" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getNumAccounts/Fault/AccountDoesNotExistException">
+    </fault>
+    </operation>
+    <operation name="getAccountId">
+      <input message="tns:getAccountId" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getAccountIdRequest">
+    </input>
+      <output message="tns:getAccountIdResponse" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getAccountIdResponse">
+    </output>
+      <fault message="tns:CustomerDoesNotExistException" name="CustomerDoesNotExistException" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getAccountId/Fault/CustomerDoesNotExistException">
+    </fault>
+      <fault message="tns:AccountDoesNotExistException" name="AccountDoesNotExistException" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getAccountId/Fault/AccountDoesNotExistException">
+    </fault>
+    </operation>
+    <operation name="getAccountBalance">
+      <input message="tns:getAccountBalance" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getAccountBalanceRequest">
+    </input>
+      <output message="tns:getAccountBalanceResponse" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getAccountBalanceResponse">
+    </output>
+      <fault message="tns:AccountDoesNotExistException" name="AccountDoesNotExistException" wsam:Action="http://simple.model.bank.rad8.itso/Bank/getAccountBalance/Fault/AccountDoesNotExistException">
+    </fault>
+    </operation>
+  </portType>
+  <binding name="BankPortBinding" type="tns:Bank">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RetrieveCustomerName">
+      <soap:operation soapAction="urn:getCustomerFullName"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="CustomerDoesNotExistException">
+        <soap:fault name="CustomerDoesNotExistException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getNumAccounts">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="CustomerDoesNotExistException">
+        <soap:fault name="CustomerDoesNotExistException" use="literal"/>
+      </fault>
+      <fault name="AccountDoesNotExistException">
+        <soap:fault name="AccountDoesNotExistException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getAccountId">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="CustomerDoesNotExistException">
+        <soap:fault name="CustomerDoesNotExistException" use="literal"/>
+      </fault>
+      <fault name="AccountDoesNotExistException">
+        <soap:fault name="AccountDoesNotExistException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getAccountBalance">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="AccountDoesNotExistException">
+        <soap:fault name="AccountDoesNotExistException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="BankService">
+    <port binding="tns:BankPortBinding" name="BankPort">
+      <soap:address location="http://localhost:9080/RAD8WebServiceWeb/BankService"/>
+    </port>
+  </service>
+</definitions>

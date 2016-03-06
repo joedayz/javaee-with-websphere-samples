@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mtom.rad8.ibm.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProcessDocumentService" targetNamespace="http://mtom.rad8.ibm.com/">
+  <types>
+
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:tns="http://mtom.rad8.ibm.com/" targetNamespace="http://mtom.rad8.ibm.com/" version="1.0">
+
+  <xs:element name="sendImage" type="tns:sendImage"/>
+
+  <xs:element name="sendImageResponse" type="tns:sendImageResponse"/>
+
+  <xs:element name="sendWordFile" type="tns:sendWordFile"/>
+
+  <xs:element name="sendWordFileResponse" type="tns:sendWordFileResponse"/>
+
+  <xs:element name="sendPDFFile" type="tns:sendPDFFile"/>
+
+  <xs:element name="sendPDFFileResponse" type="tns:sendPDFFileResponse"/>
+
+  <xs:complexType name="sendPDFFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:base64Binary" xmime:expectedContentTypes="*/*"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendPDFFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:base64Binary" xmime:expectedContentTypes="*/*"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendWordFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendWordFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:base64Binary" xmime:expectedContentTypes="image/jpeg"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendImageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:base64Binary" xmime:expectedContentTypes="image/jpeg"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
+  </types>
+  <message name="sendWordFile">
+    <part element="tns:sendWordFile" name="parameters"/>
+  </message>
+  <message name="sendWordFileResponse">
+    <part element="tns:sendWordFileResponse" name="parameters"/>
+  </message>
+  <message name="sendImage">
+    <part element="tns:sendImage" name="parameters"/>
+  </message>
+  <message name="sendImageResponse">
+    <part element="tns:sendImageResponse" name="parameters"/>
+  </message>
+  <message name="sendPDFFile">
+    <part element="tns:sendPDFFile" name="parameters"/>
+  </message>
+  <message name="sendPDFFileResponse">
+    <part element="tns:sendPDFFileResponse" name="parameters"/>
+  </message>
+  <portType name="ProcessDocumentDelegate">
+    <operation name="sendWordFile">
+      <input message="tns:sendWordFile"/>
+      <output message="tns:sendWordFileResponse"/>
+    </operation>
+    <operation name="sendImage">
+      <input message="tns:sendImage"/>
+      <output message="tns:sendImageResponse"/>
+    </operation>
+    <operation name="sendPDFFile">
+      <input message="tns:sendPDFFile"/>
+      <output message="tns:sendPDFFileResponse"/>
+    </operation>
+  </portType>
+  <binding name="ProcessDocumentPortBinding" type="tns:ProcessDocumentDelegate">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="sendWordFile">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="sendImage">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="sendPDFFile">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ProcessDocumentService">
+    <port binding="tns:ProcessDocumentPortBinding" name="ProcessDocumentPort">
+      <soap:address location="http://localhost:9080/RAD8MTOM/ProcessDocumentService"/>
+    </port>
+  </service>
+</definitions>

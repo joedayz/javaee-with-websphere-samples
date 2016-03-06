@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.etools.webservice.wscbnd:ClientBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.etools.webservice.wscbnd="http://www.ibm.com/websphere/appserver/schemas/5.0.2/wscbnd.xmi" xmi:id="ClientBinding_1452529557136">
+  <serviceRefs xmi:id="ServiceRef_1452529557136" serviceRefLink="service/BankService">
+    <portQnameBindings xmi:id="PortQnameBinding_1452529557136" portQnameNamespaceLink="http://simple.model.bank.rad8.itso/" portQnameLocalNameLink="BankPort" overriddenEndpointURI="http://localhost:9080/RAD8WebServiceWeb/BankService"/>
+  </serviceRefs>
+</com.ibm.etools.webservice.wscbnd:ClientBinding>

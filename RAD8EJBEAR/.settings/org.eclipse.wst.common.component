@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="RAD8EJBEAR">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="RAD8EJB.jar" deploy-path="/" handle="module:/resource/RAD8EJB/RAD8EJB">
+            <dependent-object>Module_1451419656666</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="RAD8JPA.jar" deploy-path="/lib" handle="module:/resource/RAD8JPA/RAD8JPA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="RAD8EJBTestWeb.war" deploy-path="/" handle="module:/resource/RAD8EJBTestWeb/RAD8EJBTestWeb">
+            <dependent-object>Module_1451422039183</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

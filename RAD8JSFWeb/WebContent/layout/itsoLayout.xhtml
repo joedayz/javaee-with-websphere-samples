@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- jsf:pagecode language="java" location="/src/pagecode/layout/ItsoLayout.java" --><!-- /jsf:pagecode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>ITSO RedBank</title>
+	<meta http-equiv="Content-Type"
+		content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="GENERATOR"
+		content="Rational® Application Developer for WebSphere® Software" />
+	<link rel="stylesheet" type="text/css" title="Style"
+		href="../theme/stylesheet.css" />
+</h:head>
+<h:body>
+	<h:panelGrid styleClass="panelGrid" id="grid1" columns="2">
+		<h:graphicImage styleClass="graphicImage" id="image1" name="itso_logo.gif" library="images" alt="ITSO logo"></h:graphicImage>
+		<h:outputText styleClass="outputText" id="text1" value="ITSO RedBank"></h:outputText>
+	</h:panelGrid>
+	<hr />
+	<f:subview id="subview1">
+		<ui:insert name="pageContent"></ui:insert>
+	</f:subview>
+	<hr />
+	<h:outputText styleClass="outputText" id="text2" value="Created by ITSO, 2010"></h:outputText>
+</h:body>
+</html>

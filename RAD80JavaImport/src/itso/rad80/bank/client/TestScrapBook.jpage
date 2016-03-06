@@ -1,0 +1,26 @@
+// ITSO Bank Snippet
+itso.rad80.bank.ifc.Bank oITSOBank = 
+		itso.rad80.bank.impl.ITSOBank.getBank();
+System.out.println("\nITSO Bank is listing all customers status");
+System.out.println(oITSOBank.getCustomers() + "\n");
+for (itso.rad80.bank.model.Customer
+		customer:oITSOBank.getCustomers().values()) 
+{
+	System.out.println("Customer: 	"+ customer);	 
+	System.out.println(oITSOBank.getAccountsForCustomer(customer.getSsn()));
+}
+
+// Multiplication Table Snippet
+String line;
+int result;
+
+for (int i = 1; i <= 10; i++) {
+	line ="row " + i + ": ";
+	
+	// begin inner for-loop
+	for (int j = 1; j <= 10; j++) {
+		result = i*j;
+		line += result + " ";
+	} // end inner for-loop
+	System.out.println(line);
+}

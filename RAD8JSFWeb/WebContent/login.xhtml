@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- jsf:pagecode language="java" location="/src/pagecode/Login.java" --><!-- /jsf:pagecode -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/layout/itsoLayout.xhtml">
+	<ui:define name="pageContent">
+		<h:form styleClass="form" id="form1">
+			<table>
+				<tbody>
+					<tr>
+						<td align="left">Enter your customer ID:</td>
+						<td style="width: 5px">&#160;</td>
+						<td><h:inputText styleClass="inputText" id="customerId1"
+							value="#{sessionScope.customerId}">
+							<f:validateRequired></f:validateRequired>
+							<f:validateLength minimum="11" maximum="11"></f:validateLength>
+						</h:inputText></td>
+					</tr>
+				</tbody>
+			</table>
+			<h:commandButton styleClass="commandButton" type="submit"
+				value="Login" id="sessionScope1" action="#{loginController.doLoginAction}">
+			</h:commandButton>
+
+			<h:messages styleClass="messages" id="sessionScope2messages"></h:messages>
+		</h:form>
+	</ui:define>
+</ui:composition>
